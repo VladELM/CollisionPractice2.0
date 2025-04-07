@@ -704,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649517fea375a8647a878c5519c9f238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonValue: 0
 --- !u!114 &1556307554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,7 +717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa25b5a6b62cefc4a965ed3477e31a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 1556307556}
   _explosionForce: 700
   _explosionRadius: 50
 --- !u!114 &1556307555
@@ -731,7 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6b6e04e7b0f0443804a16de6180077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 1556307556}
   _cube: {fileID: 4656223236539873713, guid: 822e4355d1c6ad54f938e4e2b20ef9eb, type: 3}
   _minAmount: 2
   _maxAmount: 6
@@ -751,6 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 1556307553}
   _spawner: {fileID: 1556307555}
+  _exploder: {fileID: 1556307554}
   _camera: {fileID: 1556307551}
   _rayLength: 100
   _impactRaycastLayer:

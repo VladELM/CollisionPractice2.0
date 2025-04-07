@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private InputProcessor _manager;
     [SerializeField] private Cube _cube;
     [SerializeField] private int _minAmount;
     [SerializeField] private int _maxAmount;
@@ -15,16 +14,10 @@ public class Spawner : MonoBehaviour
 
     private void OnEnable()
     {
-        _manager.Allowed += Spawn;
         _random = new Random();
     }
 
-    private void OnDisable()
-    {
-        _manager.Allowed -= Spawn;
-    }
-
-    private IEnumerable<Rigidbody> Spawn(Vector3 position, Vector3 scale, int chance)
+    public IEnumerable<Rigidbody> Spawn(Vector3 position, Vector3 scale, int chance)
     {
         List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
