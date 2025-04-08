@@ -43,9 +43,33 @@ public class InputProcessor : MonoBehaviour
                     IEnumerable<Rigidbody> rigidbodies = _spawner.Spawn(cubeTransform.position, cubeTransform.localScale, cube.Chance);
                     _exploder.Explode(rigidbodies, cubeTransform.position);
                 }
-
+                else
+                {
+                    cube.gameObject.TryGetComponent(out Rigidbody cubeRigidbody);
+                    List<Rigidbody> rigidbodies = GetRigidbodies(hit.transform.position, cube.Dimension, cubeRigidbody);
+                    _exploder.Explode(rigidbodies, cubeTransform.position, cube.transform.localScale.x);
+                }
             }
-
         }
+    }
+
+    private List<Rigidbody> GetRigidbodies(Vector3 position, float cubeDimension, Rigidbody destroyedCube)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(position, _exploder.ExplosionRadius / cubeDimension,
+                                                        _impactRaycastLayer);
+        List<Rigidbody> rigidbodies = new List<Rigidbody>();
+
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.TryGetComponent(out Rigidbody rigidbody))
+            {
+                if (rigidbody == destroyedCube)
+                    continue;
+                else
+                    rigidbodies.Add(rigidbody);
+            }
+        }
+
+        return rigidbodies;
     }
 }

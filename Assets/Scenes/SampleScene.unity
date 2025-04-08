@@ -717,8 +717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa25b5a6b62cefc4a965ed3477e31a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 700
-  _explosionRadius: 50
+  _defaultExplosionForce: 700
+  _defaultExplosionRadius: 50
 --- !u!114 &1556307555
 MonoBehaviour:
   m_ObjectHideFlags: 0
